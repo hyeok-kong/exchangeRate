@@ -16,7 +16,7 @@ module.exports = (function() {
 
     schema.Exchange = require('./schema/exchange')(mongoose);
     
-
+    // 스키마 추가 시 모델에서 한번에 관리 가능
     for(let k in schema) {
         model[k] = mongoose.model(k, schema[k]);
     }
