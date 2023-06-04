@@ -22,18 +22,28 @@ const schema = buildSchema(`
 `);
 
 const resolver = {
+    
+    // 모든 환율
     exchanges: async (args, context, info) => {
         return await exchangeService.getAllRates();
     },
+    
+    // 환율 생성
     createExchange: async (args, context, info) => {
         return await exchangeService.createRate(args);
     },
+    
+    // 환율 갱신
     updateExchange: async (args, context, info) => {
         return await exchangeService.updateRate(args);
     },
+
+    // 환율 삭제
     deleteExchange: async (args, context, info) => {
         return await exchangeService.deleteRate(args);
     },
+
+    // 코드로 환율 반환
     exchange: async (args, context, info) => {
         return await exchangeService.getRate(args);
     }
